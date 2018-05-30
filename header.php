@@ -1,7 +1,7 @@
 
 
 	<header>
-		CS 340 HW1 Melissa Kiersey - <em>Welcome <span id="username"><?php echo $user;?></span>!</em>
+		Restaurant Reviews - <em><span id="username"><?php echo $user;?></span>!</em>
 	</header>
 	<nav>
 		<ul>
