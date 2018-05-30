@@ -1,7 +1,7 @@
 
 
 	<header>
-		Restaurant Reviews - <em><span id="username"><?php echo $user;?></span>!</em>
+		Restaurant Reviews - <em><span id="username"><?php echo $user;?></span>Welcome!</em>
 	</header>
 	<nav>
 		<ul>
