@@ -4,5 +4,7 @@
 		"Sign Up" => "signUp.php",
 		"List Users" => "listUsers.php",
 		"Login" => "logIn.php",
+		"Home" => "home.php",
+		"Create" => "createAccount.php",
 	);
 ?>

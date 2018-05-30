@@ -1,10 +1,12 @@
-<?php $currentpage="Home";
+<!DOCTYPE html>
+
+<?php $currentpage="Create";
       include "pages.php";
 ?>
 
 <html>
 	<head>
-		<title>Restaurant Reviews</title>
+		<title>Create Account</title>
 		<link rel="stylesheet" href="index.css">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
