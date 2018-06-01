@@ -3,6 +3,6 @@
 	$content = array(
 		"Home" => "home.php",
 		"Browse Restaurants" => "browseRestaurants.php",
-		"My Profile" => "myProfile.php",
+		"Profile" => "myProfile.php",
 	);
 ?>

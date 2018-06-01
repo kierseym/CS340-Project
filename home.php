@@ -6,7 +6,7 @@
 
 <html>
 	<head>
-		<title>Login</title>
+		<title>Home</title>
 		<link rel="stylesheet" href="index.css">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
@@ -14,7 +14,7 @@
 
 <?php
   include "header.php";
-  $msg = "Login";
+  $msg = "Home";
   include 'connectvars.php';
   $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
   if (!$conn) {
@@ -28,10 +28,16 @@
       //$queryIn = mysql_query("SELECT * FROM Users where username='$username' AND password='MD5($password)'");
       //$resultIn = msqli_query($conn, $queryIn);
 
-        $queryIn = "SELECT * FROM Users where username='$username' AND password=MD5('$password')";
+        $queryIn = "SELECT * FROM WebUsers where username='$username' AND password='$password'";
     		$resultIn = mysqli_query($conn, $queryIn);
     		if (mysqli_num_rows($resultIn)> 0) {
     			$msg ="<h2>You have successfully logged in!</h2>";
+          session_start();
+          if(!$_SESSION["name"])
+            $_SESSION["name"] = $username;
+          else {
+            $_SESSION["name"] = $username;
+          }
     		}
         else{
           $msg = "<h2>The username or password you entered are incorrect.</h2>";
@@ -51,25 +57,33 @@
 
 <section>
   <h2> <?php echo $msg; ?> </h2>
+  <div id="container">
+<div id="loginForm">
+<form method="post" id="addForm" action="myProfile.php">
 
-<form method="post" id="addForm">
-<fieldset>
-<legend>User Info:</legend>
   <p>
-      <label for="userName">Username:</label>
-      <input type="text" class="required" name="username" id="username">
+      <label for="userName" class="text-form">Username:</label>
+      <input type="text" class="text-form" class="required" name="username" id="username">
   </p>
   <p>
-      <label for="password">Password:</label>
-      <input type="text" class="required" name="password" id="password">
+      <label for="password" class="text-form">Password:</label>
+      <input type="text" class="text-form" class="required" name="password" id="password">
   </p>
 
 
       <p>
-        <input type = "Submit"  value = "Login" />
-        <button type="button" id="createButton"><a href="/createAccount.php">Create Account</a></button>
-      </p>
+        <input type = "Submit" class="text-form" value = "Login" />
 </form>
-</fieldset>
+<form method="get" action="createAccount.php">
+  <button style="display: inline-block" type="submit">Create Account</button>
+</form>
+</p>
+</div>
+<div id="about">
+  <h3>About us:</h2>
+  <p>Our goal is to help people get honest, accurate reviews on local restaurants. Members are able to rate restaurants based on service, food, and cost. Members can also select their favorite restaurants to keep up to date on.   </p>
+</div>
+</div>
+
 </body>
 </html>
