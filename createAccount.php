@@ -77,5 +77,8 @@
         <input type = "reset"  value = "Clear Form" />
       </p>
 </form>
+<form method="get" action="addWork.php">
+  <button style="display: inline-block" type="submit">Add Work Experience</button>
+</form>
 </body>
 </html>
