@@ -33,9 +33,7 @@
       		if (mysqli_num_rows($resultIn)> 0) {
       			$msg ="<h2>Error: Please choose another username. That one already exists.</h2>";
       		} else {
-
       		// attempt insert query
-
       			$query = "INSERT INTO WebUsers (username, password, name, phoneNumber) VALUES ('$username', '$password', '$name', '$phoneNumber')";
       			if(mysqli_query($conn, $query)){
       				$msg =  "<p>Account successfully created.</p>";
