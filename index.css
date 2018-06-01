@@ -1,3 +1,4 @@
+
 header {
 
 	height: 20px;
@@ -79,9 +80,7 @@ main {
 #betSection {
 	margin: 10px 10px 10px 10px;
 }
-#createButton {
-	color: black;
-}
+
 #buttons {
 	width: 600px;
 	height: 120px;
@@ -309,4 +308,49 @@ caption {
 .btn2:hover {
   background: orange;
   text-decoration: none;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+#container {
+	width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+}
+#loginForm {
+	flex: 0 1 20%;
+	padding: 5px;
+	padding-left: 15px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	background-color: #b4deb8;
+	border-radius: 1%;
+}
+
+#about {
+	padding: 5px;
+	flex: 0 1 66%;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	background-color: #b4deb8;
+	margin-left: 8px;
+	border-radius: 1%;
+}
+
+input[type=text]:focus {
+	background-color: white;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 30px white inset;
+	-webkit-text-fill-color: white;
+}
+
+.text-form {
+	margin: auto;
 }
