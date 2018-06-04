@@ -354,3 +354,47 @@ input:-webkit-autofill {
 .text-form {
 	margin: auto;
 }
+
+.restaurant{
+  display: block;
+  border: 1px solid gray;
+  width: 275px;
+  height: 275px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  left: 255px;
+  top: -265px;
+}
+
+.restaurant-image-container img{
+  display: block;
+  max-width: 275px;
+  max-height: 225px;
+  margin: auto;
+}
+
+.restaurant-info-container a{
+  line-height: 50px;
+  text-decoration: none;
+  color: darkorange;
+}
+
+.restaurant-info-container a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.restaurant-rating{
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: .25px solid black;
+  padding: 2px;
+  border-radius: 1px;
+}
+
+.restaurant-city{
+  font-size: 14px;
+}

@@ -62,7 +62,7 @@
 
 <form method="post" id="addForm">
 <fieldset>
-<legend>User Info:</legend>
+<legend>User Work Experience Info:</legend>
   <p>
       <label for="userName">Username:</label>
       <input type="text" class="required" name="username" id="username">
