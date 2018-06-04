@@ -117,7 +117,7 @@
   <p>
     <label for="serviceRating">Service Rating:</label>
     <select class="required" name="serviceRating" id="serviceRating">
-      <option selected value="">0</option>
+      <option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -128,7 +128,7 @@
   <p>
     <label for="foodRating">Food Rating:</label>
     <select class="required" name="foodRating" id="foodRating">
-      <option selected value="">0</option>
+      <option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -139,7 +139,7 @@
   <p>
     <label for="costRating">Cost Rating:</label>
     <select class="required" name="costRating" id="costRating">
-      <option selected value="">0</option>
+      <option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>

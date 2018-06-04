@@ -86,7 +86,7 @@
   <p>
     <label for="type">Type:</label>
     <select class="required" name="type" id="type">
-      <option selected value="">Other</option>
+      <option>Other</option>
       <option>American</option>
       <option>Barbecue</option>
       <option>Casual Dining</option>
