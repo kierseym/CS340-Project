@@ -12,6 +12,7 @@
 	</head>
 <body>
 
+
 <?php
   include "header.php";
   $msg = "Browse Restaurants";
@@ -64,5 +65,14 @@
     	mysqli_free_result($result);
     	mysqli_close($conn);
 ?>
+
+<form method="get" action="addRestaurant.php">
+  <button style="display: inline-block" type="submit">Add New Restaurant</button>
+</form>
+
+<form method="get" action="addReview.php">
+  <button style="display: inline-block" type="submit">Add New Review</button>
+</form>
+
 </body>
 </html>
