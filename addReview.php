@@ -37,7 +37,18 @@
       		$queryIn = "SELECT * FROM Review where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
       		$resultIn = mysqli_query($conn, $queryIn);
       		if (mysqli_num_rows($resultIn)> 0) {
-      			$msg ="<h2>Error: You are have already reviewed that restaurant.</h2>";
+		    // attempt UPDATE query
+		    $query = "UPDATE Review
+		    SET overallRating = '$overallRating', review = '$review',
+		      serviceRating = '$serviceRating', foodRating = '$foodRating',
+		      costRating = '$costRating'
+		    WHERE username = '$username' and restaurantName = '$restaurantName' and
+		       street = '$street' and zip = '$zip'";
+		if(mysqli_query($conn, $query)){
+		     $msg ="<h2>You have successfully updated your review.</h2>";
+	        } else{
+	             echo "ERROR: Could not execute $query. " . mysqli_error($conn);
+	        }
       		} else {
       		// attempt insert query
       			$query = "INSERT INTO Review (username, restaurantName, street, zip, overallRating, review, serviceRating, foodRating, costRating)
