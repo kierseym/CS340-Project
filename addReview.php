@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
 
 <?php $currentpage="Add Review";
       include "pages.php";
@@ -14,7 +16,8 @@
 
 <?php
   include "header.php";
-  $msg = "Add Review";
+  $username = $_SESSION['user'];
+  $msg = "Add Review by $username";
   include 'connectvars.php';
   $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
   if (!$conn) {
@@ -23,7 +26,7 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Escape user inputs for security
-    	$username = mysqli_real_escape_string($conn, $_POST['username']);
+    	//$username = mysqli_real_escape_string($conn, $_POST['username']);
       $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
       $street = mysqli_real_escape_string($conn, $_POST['street']);
       $zip = mysqli_real_escape_string($conn, $_POST['zip']);
@@ -72,11 +75,6 @@
   <h2> <?php echo $msg; ?> </h2>
 <div id="loginForm">
 <form method="post" id="addForm">
-
-  <p>
-      <label for="userName">Username:</label>
-      <input type="text" class="required" name="username" id="username">
-  </p>
 
   <p>
       <label for="restaurantName">Restaurant:</label>
