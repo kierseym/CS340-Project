@@ -1,19 +1,10 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
 
 <?php $currentpage="Home";
       include "pages.php";
 ?>
-
-<html>
-	<head>
-		<title>Home</title>
-		<link rel="stylesheet" href="index.css">
-		<script type = "text/javascript"  src = "verifyInput.js" > </script>
-	</head>
-<body>
 
 <?php
   include "header.php";
@@ -53,6 +44,14 @@ session_start();
   mysqli_close($conn);
 
 ?>
+
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" href="index.css">
+		<script type = "text/javascript"  src = "verifyInput.js" > </script>
+	</head>
+<body>
 
 <section>
   <h2> <?php echo $msg; ?> </h2>

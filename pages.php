@@ -4,5 +4,6 @@
 		"Home" => "home.php",
 		"Browse Restaurants" => "browseRestaurants.php",
 		"Profile" => "myProfile.php",
+		"Logout" => "logout.php",
 	);
 ?>
