@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
 
 <?php $currentpage="Create";
       include "pages.php";
@@ -36,6 +38,8 @@
       		// attempt insert query
       			$query = "INSERT INTO WebUsers (username, password, name, phoneNumber) VALUES ('$username', '$password', '$name', '$phoneNumber')";
       			if(mysqli_query($conn, $query)){
+              $_SESSION['user'] = $username;
+              $user = $_SESSION['user'];
       				$msg =  "<p>Account successfully created. Click the link below to add work experience, or go to the Browse Restaurants page to start looking at restaurants. </p>";
       			} else{
       				echo "ERROR: Could not execute $query. " . mysqli_error($conn);

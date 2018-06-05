@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
 
 <?php $currentpage="Add Restaurant";
       include "pages.php";
