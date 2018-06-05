@@ -364,10 +364,11 @@ input:-webkit-autofill {
 }
 
 .restaurant{
+  text-align: right;
   display: block;
   border: 1px solid gray;
-  width: 275px;
-  height: 275px;
+  width: 95%;
+  max-height: 275px;
   background-color: white;
   border-radius: 5px;
   margin: 10px;
@@ -377,25 +378,33 @@ input:-webkit-autofill {
 }
 
 .restaurant-image-container img{
+  width: 40%;
+  float: left;
   display: block;
   max-width: 275px;
   max-height: 225px;
   margin: auto;
 }
 
+.clearfix {
+	overflow: auto;
+}
+
 .restaurant-info-container a{
+  width: 10%;
   line-height: 50px;
   text-decoration: none;
   color: darkorange;
 }
 
 .restaurant-info-container a:hover{
+  width: 10%;
   text-decoration: underline;
   cursor: pointer;
 }
 
-
 .restaurant-rating{
+  width: 10%;
   font-size: 12px;
   background-color: rgba(0, 0, 0, 0.1);
   border: .25px solid black;
@@ -404,6 +413,7 @@ input:-webkit-autofill {
 }
 
 .restaurant-city{
+  width: 10%;
   font-size: 14px;
 }
 
