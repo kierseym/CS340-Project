@@ -29,32 +29,96 @@
       $type = mysqli_real_escape_string($conn, $_POST['type']);
       $city = mysqli_real_escape_string($conn, $_POST['city']);
 
-    // query to select all information from supplier table
-    	$query = "SELECT * FROM Restaurants
-                WHERE name = '$name' and rating = '$rating'
-                      and type = '$type' and city = '$city'";
-      // Get results from query
-      	$result = mysqli_query($conn, $query);
-      	if (!$result) {
-      				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
-      	}
-      // get number of columns in table
-      //	$fields_num = mysqli_num_fields($result);
-      	echo "<h1>Restaurants:</h1>";
-      	//echo "<table id='t01' border='1'><tr>";
-
-      	while($row = mysqli_fetch_row($result)) {
-      echo"<div class='restaurant'>
-          <div class='restaurant-contents'>
-            <div class='restaurant-image-container'>
-              <img src=$row[6]>
-            </div>
-            <div class='restaurant-info-container'>
-              <a href='#' class='restaurant-title'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
-            </div>
-          </div>
-        </div>";
+      if(!$name && !$rating && !$type && !$city){
+          $query = "SELECT * FROM Restaurants";
       }
+      elseif(!$name && !$rating && !$type){
+        $query = "SELECT * FROM Restaurants
+                  WHERE city = '$city'";
+      }
+      elseif(!$name && !$rating && !$city){
+        $query = "SELECT * FROM Restaurants
+                  WHERE type = '$type'";
+      }
+      elseif(!$name && !$type && !$city){
+        $query = "SELECT * FROM Restaurants
+                  WHERE rating = '$rating'";
+      }
+      elseif(!$type && !$rating && !$city){
+        $query = "SELECT * FROM Restaurants
+                  WHERE name = '$name'";
+      }
+      elseif(!$name && !$rating){
+        $query = "SELECT * FROM Restaurants
+                  WHERE city = '$city' and type = '$type'";
+      }
+      elseif(!$name && !$type){
+        $query = "SELECT * FROM Restaurants
+                  WHERE city = '$city' and rating = '$rating'";
+      }
+      elseif(!$name && !$city){
+        $query = "SELECT * FROM Restaurants
+                  WHERE rating = '$rating' and type = '$type'";
+      }
+      elseif(!$rating && !$city){
+        $query = "SELECT * FROM Restaurants
+                  WHERE name = '$name' and type = '$type'";
+      }
+      elseif(!$rating && !$type){
+        $query = "SELECT * FROM Restaurants
+                  WHERE name = '$name' and city = '$city'";
+      }
+      elseif(!$city && !$type){
+        $query = "SELECT * FROM Restaurants
+                  WHERE name = '$name' and rating = '$rating'";
+      }
+      elseif(!$city){
+        $query = "SELECT * FROM Restaurants
+                  WHERE name = '$name' and type = '$type'
+                        and rating = '$rating'";
+      }
+      elseif(!$name){
+        $query = "SELECT * FROM Restaurants
+                  WHERE city = '$city' and type = '$type'
+                        and rating = '$rating'";
+      }
+      elseif(!$rating){
+        $query = "SELECT * FROM Restaurants
+                  WHERE city = '$city' and type = '$type'
+                        and name = '$name'";
+      }
+      elseif(!$type){
+        $query = "SELECT * FROM Restaurants
+                  WHERE city = '$city' and rating = '$rating'
+                        and name = '$name'";
+      }
+      else{
+      	$query = "SELECT * FROM Restaurants
+                  WHERE name = '$name' and rating = '$rating'
+                        and type = '$type' and city = '$city'";
+      }
+        // Get results from query
+        	$result = mysqli_query($conn, $query);
+        	if (!$result) {
+        				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
+        	}
+        // get number of columns in table
+        //	$fields_num = mysqli_num_fields($result);
+        	echo "<h1>Restaurants:</h1>";
+        	//echo "<table id='t01' border='1'><tr>";
+
+        	while($row = mysqli_fetch_row($result)) {
+        echo"<div class='restaurant'>
+            <div class='restaurant-contents'>
+              <div class='restaurant-image-container'>
+                <img src=$row[6]>
+              </div>
+              <div class='restaurant-info-container'>
+                <a href='#' class='restaurant-title'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
+              </div>
+            </div>
+          </div>";
+        }
     }
 
     	mysqli_free_result($result);
@@ -74,13 +138,13 @@
 
   <p>
     <label for='rating'>Overall Rating: </label>
-    <input type='number' min = 0 max = 5 name='rating' id='rating' class='optional'>
+    <input type='text' name='rating' id='rating' class='optional'title="rating should be numeric and between 0 and 5">
   </p>
 
   <p>
     <label for='type'>Type: </label>
     <select id='type' class='optional' name='type'>
-      <option selected value='*'>Any</option>
+      <option selected value=''>Any</option>
       <option>Other</option>
       <option>American</option>
       <option>Barbecue</option>
