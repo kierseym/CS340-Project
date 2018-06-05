@@ -114,8 +114,14 @@
                 <img src=$row[6]>
               </div>
               <div class='restaurant-info-container'>
-                <a href='#' class='restaurant-title'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
-              </div>
+                <a href='#' class='restaurant-title'>$row[0]</a>";
+        if(!$row[7]){
+          echo"<span class='restaurant-rating'>Not Yet Rated</span> <span class='restaurant-city'>$row[3]</span>";
+        }
+        else{
+          echo"<span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>";
+        }
+          echo "</div>
             </div>
           </div>";
         }
