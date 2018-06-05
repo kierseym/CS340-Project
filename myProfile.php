@@ -1,3 +1,14 @@
+<?php
+  session_start();
+?>
+<?php
+  if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+  }
+  else{
+    $user = '';
+  }
+?>
 <!DOCTYPE html>
 
 <?php $currentpage="Profile";
@@ -22,5 +33,8 @@
   }
 ?>
 <h2>Profile info and favorited restaurants will go here.</h2>
+<?php
+  echo $_SESSION['user'];
+ ?>
 </body>
 </html>
