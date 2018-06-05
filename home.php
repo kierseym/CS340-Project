@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <?php $currentpage="Home";
@@ -31,14 +34,10 @@
         $queryIn = "SELECT * FROM WebUsers where username='$username' AND password='$password'";
     		$resultIn = mysqli_query($conn, $queryIn);
     		if (mysqli_num_rows($resultIn)> 0) {
-    			$msg ="<h2>You have successfully logged in!</h2>";
-          session_start();
-          if(!$_SESSION["name"])
-            $_SESSION["name"] = $username;
-          else {
-            $_SESSION["name"] = $username;
-          }
-    		}
+          $_SESSION['user'] = $username;
+          $user = $_SESSION['user'];
+          $msg = "<h2>You have successfully logged in $user !</h2>";
+        }
         else{
           $msg = "<h2>The username or password you entered are incorrect.</h2>";
         }/*
@@ -59,23 +58,23 @@
   <h2> <?php echo $msg; ?> </h2>
   <div id="container">
 <div id="loginForm">
-<form method="post" id="addForm" action="myProfile.php">
+<form method="post" id="addForm">
 
   <p>
       <label for="userName" class="text-form">Username:</label>
-      <input type="text" class="text-form" class="required" name="username" id="username">
+      <input type="text" class="text-form" class="required" name="username" id="username" placeholder="Username">
   </p>
   <p>
       <label for="password" class="text-form">Password:</label>
-      <input type="text" class="text-form" class="required" name="password" id="password">
+      <input type="text" class="text-form" class="required" name="password" id="password" placeholder="password">
   </p>
 
 
       <p>
-        <input type = "Submit" class="text-form" value = "Login" />
+        <input type = "Submit" class="text-form" class="button-style" value = "Login" />
 </form>
 <form method="get" action="createAccount.php">
-  <button style="display: inline-block" type="submit">Create Account</button>
+  <button class="button-style" type="submit">Create Account</button>
 </form>
 </p>
 </div>

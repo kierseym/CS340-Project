@@ -70,10 +70,9 @@
 
 <section>
   <h2> <?php echo $msg; ?> </h2>
-
+<div id="loginForm">
 <form method="post" id="addForm">
-<fieldset>
-<legend>User Restaurant Review Info:</legend>
+
   <p>
       <label for="userName">Username:</label>
       <input type="text" class="required" name="username" id="username">
@@ -161,9 +160,10 @@
 </fieldset>
 
       <p>
-        <input type = "submit"  value = "Submit" />
-        <input type = "reset"  value = "Clear Form" />
+        <input type = "submit" class="button-style" value = "Submit" />
+        <input type = "reset" class="button-style" value = "Clear Form" />
       </p>
 </form>
+</div>
 </body>
 </html>

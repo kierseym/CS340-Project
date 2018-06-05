@@ -59,10 +59,9 @@
 
 <section>
   <h2> <?php echo $msg; ?> </h2>
+    <div id="loginForm">
 
 <form method="post" id="addForm">
-<fieldset>
-<legend>User Work Experience Info:</legend>
   <p>
       <label for="userName">Username:</label>
       <input type="text" class="required" name="username" id="username">
@@ -110,6 +109,8 @@
       echo '</select>';
       ?>
   </p>
+
+
   <p>
       <label for="startDay">Start Day:</label>
       <input type="number" min=1 max = 31 class="required" name="startDay" id="startDay" title="Start day should be numeric and between 1 and 31.">
@@ -126,12 +127,12 @@
       <label for="hourlyPay">Hourly Pay:</label>
       <input type="decimal" min=0 max = 40.00 class="required" name="hourlyPay" id="hourlyPay" title="Hourly pay should be numeric. If salaried, please estimate conversion to hourly pay.">
   </p>
-</fieldset>
 
       <p>
-        <input type = "submit"  value = "Submit" />
-        <input type = "reset"  value = "Clear Form" />
+        <input type = "submit" class="button-style" value = "Submit" />
+        <input type = "reset" class="button-style" value = "Clear Form" />
       </p>
 </form>
+</div>
 </body>
 </html>

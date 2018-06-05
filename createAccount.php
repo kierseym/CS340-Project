@@ -50,10 +50,8 @@
 
 <section>
   <h2> <?php echo $msg; ?> </h2>
-
+<div class="form-style">
 <form method="post" id="addForm">
-<fieldset>
-<legend>User Info:</legend>
   <p>
       <label for="userName">Username:</label>
       <input type="text" class="required" name="username" id="username">
@@ -70,15 +68,15 @@
       <label for="phoneNumber">Phone Number:</label>
       <input type="number" min=1111111111 max = 9999999999 class="required" name="phoneNumber" id="phoneNumber" title="phone number should be numeric">
   </p>
-</fieldset>
 
       <p>
-        <input type = "submit"  value = "Submit" />
-        <input type = "reset"  value = "Clear Form" />
+        <input type = "submit" class="button-style" value = "Submit" />
+        <input type = "reset" class="button-style" value = "Clear Form" />
       </p>
 </form>
 <form method="get" action="addWork.php">
-  <button style="display: inline-block" type="submit">Add Work Experience</button>
+  <button style="display: inline-block" type="submit" id="add-work" class="button-style">Add Work Experience</button>
 </form>
+</div>
 </body>
 </html>

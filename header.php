@@ -1,17 +1,13 @@
+<?php session_start(); ?>
 <?php
-	session_start();
-	if(isset($_SESSION["name"])){
-		$user = $_SESSION["name"];
+	if(isset($_SESSION['user']))
+	{
 	}
-	else{
-		$user = " ";
-	}
+
  ?>
-	<header>
-		Restaurant Reviews<em><span id="username"><?php echo $user?></span></em>
-	</header>
 	<nav>
 		<ul>
+			<li class='title'>Restaurant Reviews</li>
 		<?php
 		foreach ($content as $page => $location){
 			echo "<li><a href='$location?user=".$username."' ".($page==$currentpage?" class='active'":"").">".$page."</a></li>";
