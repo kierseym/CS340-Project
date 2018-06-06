@@ -19,6 +19,7 @@
 	<head>
 		<title>Profile</title>
 		<link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
 <body>
@@ -43,7 +44,7 @@
     $userrow = mysqli_fetch_row($userresult);
 
     echo "<h1> Welcome $user </h1>
-           <div id='user-info' class='review-container'>
+           <div id='user-info'>
            <h2> User Information: </h2>
            <p> Username: $userrow[0]</p>
            <p> Name: $userrow[2]</p>
@@ -59,11 +60,13 @@
       }
     // get number of columns in table
     //	$fields_num = mysqli_num_fields($result);
-      echo "<h2>Favorited Restaurants:</h2>";
+    echo "<div class='main-container'>
+          <h2 class='profile-titles'>Favorited Restaurants:</h2>";
       //echo "<table id='t01' border='1'><tr>";
 
       while($row = mysqli_fetch_row($result)) {
-    echo"<div class='restaurant' id='profile-restaurant'>
+    echo "
+    <div class='restaurant' id='profile-restaurant'>
         <div class='restaurant-contents'>
           <div class='clearfix'>
 			<div class='restaurant-image-container'>
@@ -72,10 +75,10 @@
           <div class='restaurant-info-container'>
             <a href='#' class='restaurant-title'>$row[0]</a>";
     if(!$row[7]){
-      echo"<span class='restaurant-rating'>Not Yet Rated</span> <span class='restaurant-city'>$row[3]</span>";
+      echo"</br><span class='restaurant-rating'>Not Yet Rated</span>";
     }
     else{
-      echo"<span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>";
+      echo"</br><span class='restaurant-rating'>Rating: $row[7]</span>";
     }
       echo "</div>
       </div>
@@ -88,19 +91,18 @@
     if (!$reviewresult) {
           echo "ERROR: Could not execute $reviewquery. " . mysqli_error($conn);
     }
-    $reviewrow = mysqli_fetch_row($reviewresult);
-
-    echo "
-          <div id='restaurant-review-info' class='review-container'>
-          <h2>Your Reviews: </h2>
-            <h3>$reviewrow[1]</h3>
+    echo "<h2 class='profile-titles'>Your Reviews: </h2>";
+    while($reviewrow = mysqli_fetch_row($reviewresult)) {
+    echo "<div id='restaurant-review-info'>
+          <h3>$reviewrow[1]</h3>
             <p>Address: $reviewrow[2]</p>
             <p>Overall rating: $reviewrow[4]</p>
            <p>Review: $reviewrow[5]</lp>
            <p> Service Rating: $reviewrow[6], Food Rating: $reviewrow[7], Cost Rating: $reviewrow[8]</p>
-
            </div>";
   }
+  echo "</div>";
+}
 
 mysqli_free_result($result);
 mysqli_close($conn);

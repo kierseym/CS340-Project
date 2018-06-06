@@ -49,6 +49,7 @@ session_start();
 	<head>
 		<title>Home</title>
 		<link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
 <body>
