@@ -41,7 +41,7 @@ nav ul {
 }
 
 body{
-	background-color: #e8f3fd;
+	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
 }
@@ -339,11 +339,50 @@ a {
 	border-radius: 5px;
 }
 
+#user-info {
+	flex: 0 1 20%;
+	padding: 20px;
+	padding-left: 15px;
+	border-style: solid;
+	border-color: gray;
+	border-width: 2px;
+	background-color: #4e97da;
+	border-radius: 5px;
+}
+
+#profile-restaurant.restaurant {
+	flex: 0 1 66%;
+	text-align: left;
+	border: 1px solid gray;
+	width: 95%;
+	max-height: 275px;
+	background-color: #4e97da;
+	border-radius: 5px;
+	padding: 10px;
+	left: 255px;
+	top: -265px;
+}
+
+.review-info{
+	text-align: left;
+}
+
+#restaurant-review-info {
+	padding: 5px;
+	flex: 0 1 66%;
+	border-style: solid;
+	border-color: gray;
+	border-width: 2px;
+	background-color: #4e97da;
+	margin-left: 8px;
+	border-radius: 1%;
+}
+
 #about {
 	padding: 5px;
 	flex: 0 1 66%;
 	border-style: solid;
-	border-color: black;
+	border-color: gray;
 	border-width: 2px;
 	background-color: #4e97da;
 	margin-left: 8px;
@@ -438,7 +477,19 @@ input[type=submit]:hover{
 	background-color: black;
 	color: #e8f3fd;
 }
+
 input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+input[type=password] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -523,4 +574,17 @@ select {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+}
+
+.review-container{
+	display: block;
+	border: 1px solid gray;
+	width: 95%;
+	max-height: 275px;
+	background-color: white;
+	border-radius: 5px;
+	margin: 10px;
+	padding: 10px;
+	left: 255px;
+	top: -265px;
 }

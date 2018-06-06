@@ -65,7 +65,7 @@ session_start();
   </p>
   <p>
       <label for="password" class="text-form">Password:</label>
-      <input type="text" class="text-form" class="required" name="password" id="password" placeholder="password">
+      <input type="password" class="text-form" class="required" name="password" id="password" placeholder="password">
   </p>
 
 

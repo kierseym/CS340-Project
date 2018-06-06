@@ -69,11 +69,11 @@
 ?>
 
 <form method="get" action="addRestaurant.php">
-  <button style="display: inline-block" type="submit">Add New Restaurant</button>
+  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Restaurant</button>
 </form>
 
 <form method="get" action="addReview.php">
-  <button style="display: inline-block" type="submit">Add New Review</button>
+  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Review</button>
 </form>
 
 </body>
