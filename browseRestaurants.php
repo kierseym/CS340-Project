@@ -8,6 +8,7 @@
 	<head>
 		<title>Browse Restaurants</title>
 		<link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
 <body>
@@ -69,11 +70,11 @@
 ?>
 
 <form method="get" action="addRestaurant.php">
-  <button style="display: inline-block" type="submit">Add New Restaurant</button>
+  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Restaurant</button>
 </form>
 
 <form method="get" action="addReview.php">
-  <button style="display: inline-block" type="submit">Add New Review</button>
+  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Review</button>
 </form>
 
 </body>

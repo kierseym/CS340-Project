@@ -49,6 +49,7 @@ session_start();
 	<head>
 		<title>Home</title>
 		<link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
 	</head>
 <body>
@@ -65,7 +66,7 @@ session_start();
   </p>
   <p>
       <label for="password" class="text-form">Password:</label>
-      <input type="text" class="text-form" class="required" name="password" id="password" placeholder="password">
+      <input type="password" class="text-form" class="required" name="password" id="password" placeholder="password">
   </p>
 
 

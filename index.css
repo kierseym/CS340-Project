@@ -28,7 +28,7 @@ header em {
 
 html {
 	background-color: light gray;
-	font-family: Helvetica;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
 }
 nav ul {
@@ -41,7 +41,7 @@ nav ul {
 }
 
 body{
-	background-color: #e8f3fd;
+	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
 }
@@ -65,7 +65,7 @@ nav li a {
     text-decoration: none;
 }
 nav li a:hover:not(.active) {
-    background-color: #e8f3fd;
+    background-color: #eee;
 		color: black;
 }
 
@@ -339,11 +339,66 @@ a {
 	border-radius: 5px;
 }
 
+.main-container{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 220px;
+	 padding: 0px 10px;
+}
+#user-info {
+		width: 200px;
+     position: fixed;
+     z-index: 1;
+     top: 170px;
+     left: 10px;
+     background: #eee;
+     overflow-x: hidden;
+     padding: 8px 8px;
+}
+
+.profile-titles{
+	width: 100%;
+	margin: 0;
+}
+.favorited-title{
+	margin-left: 230px;
+}
+#profile-restaurant.restaurant {
+	flex: 0 1 66%;
+	text-align: left;
+	border: 1px solid gray;
+	width: 95%;
+	max-height: 275px;
+	background-color: #4e97da;
+	border-radius: 5px;
+	padding: 10px;
+	left: 255px;
+	top: -265px;
+}
+
+.review-info{
+	text-align: left;
+}
+
+#restaurant-review-info {
+	padding: 5px;
+	flex: 0 1 66%;
+	border-style: solid;
+	border-color: gray;
+	border-width: 2px;
+	background-color: #4e97da;
+	margin-left: 8px;
+	border-radius: 1%;
+	overflow: visible;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 #about {
 	padding: 5px;
 	flex: 0 1 66%;
 	border-style: solid;
-	border-color: black;
+	border-color: gray;
 	border-width: 2px;
 	background-color: #4e97da;
 	margin-left: 8px;
@@ -394,7 +449,7 @@ input:-webkit-autofill {
   width: 10%;
   line-height: 50px;
   text-decoration: none;
-  color: darkorange;
+  color: #eee;
 }
 
 .restaurant-info-container a:hover{
@@ -406,7 +461,6 @@ input:-webkit-autofill {
 .restaurant-rating{
   width: 10%;
   font-size: 12px;
-  background-color: rgba(0, 0, 0, 0.1);
   border: .25px solid black;
   padding: 2px;
   border-radius: 1px;
@@ -438,7 +492,19 @@ input[type=submit]:hover{
 	background-color: black;
 	color: #e8f3fd;
 }
+
 input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+input[type=password] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -523,4 +589,17 @@ select {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+}
+
+.review-container{
+	display: block;
+	border: 1px solid gray;
+	width: 95%;
+	max-height: 275px;
+	background-color: white;
+	border-radius: 5px;
+	margin: 10px;
+	padding: 10px;
+	left: 255px;
+	top: -265px;
 }
