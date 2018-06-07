@@ -48,13 +48,11 @@ body{
 
 nav li {
     float: left;
-    border-right:1px solid #bbb;
 }
 
 nav li:nth-last-child(-n+4){
     border-right: none;
     float: left;
-    border-left:1px solid #bbb;
 }
 
 nav li a {
@@ -369,7 +367,7 @@ a {
 	border: 1px solid gray;
 	width: 95%;
 	max-height: 275px;
-	background-color: #4e97da;
+	background-color: #c8dff366;
 	border-radius: 5px;
 	padding: 10px;
 	left: 255px;
@@ -382,11 +380,11 @@ a {
 
 #restaurant-review-info {
 	padding: 5px;
-	flex: 0 1 66%;
+	width: auto;
 	border-style: solid;
 	border-color: gray;
-	border-width: 2px;
-	background-color: #4e97da;
+	border-width: 1px;
+	background-color: #c8dff366;
 	margin-left: 8px;
 	border-radius: 1%;
 	overflow: visible;
@@ -400,7 +398,7 @@ a {
 	border-style: solid;
 	border-color: gray;
 	border-width: 2px;
-	background-color: #4e97da;
+	background-color: #c8dff366;
 	margin-left: 8px;
 	border-radius: 1%;
 }
@@ -449,13 +447,27 @@ input:-webkit-autofill {
   width: 10%;
   line-height: 50px;
   text-decoration: none;
-  color: #eee;
+  color: #4e97da;
 }
 
 .restaurant-info-container a:hover{
   width: 10%;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.restaurant-info-container-profile a{
+  width: 10%;
+  line-height: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.restaurant-info-container-profile a:hover{
+  width: 10%;
+  line-height: 50px;
+  text-decoration: none;
+  color: #4e97da;
 }
 
 .restaurant-rating{
@@ -568,7 +580,7 @@ input[type=number] {
 .browse-button-style{
 	width: 100%;
      background-color: #4e97da;
-     color: black;
+     color: #eee;
      padding: 14px 20px;
      margin: 5px;
      border: none;
@@ -577,8 +589,80 @@ input[type=number] {
 }
 
 .browse-button-style:hover{
+	background-color: #eee;
+	color: #4e97da;
+}
+
+a.add-review-button{
+	width: 50%;
+	-webkit-appearance: button;
+	appearance: button;
+	background-color: #4e97da;
+	text-decoration: none;
+	color: #eee;
+	margin: 5px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 14px;
+	border-color: #4e97da;
+}
+
+a.add-review-button:hover {
+	width: 50%;
+	-webkit-appearance: button;
+	appearance: button;
+	background-color: #eee;
+	text-decoration: none;
+	color: #4e97da;
+	margin: 5px;
+	border: 0;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 14px;
+}
+
+.browse-button-style a:hover{
 	background-color: white;
 	color: #4e97da;
+}
+
+a.add-review-button-rest{
+	width: 20%;
+	-webkit-appearance: button;
+	appearance: button;
+	background-color: #4e97da;
+	text-decoration: none;
+	color: #eee;
+	margin: 5px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 14px;
+	border-color: #4e97da;
+	height: 30px;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+a.add-review-button-rest:hover {
+	width: 20%;
+	height: 30px;
+	vertical-align: middle;
+	-webkit-appearance: button;
+	appearance: button;
+	background-color: #eee;
+	text-decoration: none;
+	color: #4e97da;
+	margin: 5px;
+	border: 0;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 14px;
 }
 
 select {
@@ -602,4 +686,8 @@ select {
 	padding: 10px;
 	left: 255px;
 	top: -265px;
+}
+
+.rest-page {
+	margin-left: 8px;
 }
