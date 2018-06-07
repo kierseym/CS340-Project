@@ -27,9 +27,12 @@ session_start();
 
     // Escape user inputs for security
     	//$username = mysqli_real_escape_string($conn, $_POST['username']);
-      $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
-      $street = mysqli_real_escape_string($conn, $_POST['street']);
-      $zip = mysqli_real_escape_string($conn, $_POST['zip']);
+    //  $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
+      //$street = mysqli_real_escape_string($conn, $_POST['street']);
+      //$zip = mysqli_real_escape_string($conn, $_POST['zip']);
+      $restaurantName = $_GET['restName'];
+      $zip = $_GET['zip'];
+      $street = $_GET['street'];
       $review = mysqli_real_escape_string($conn, $_POST['review']);
       $serviceRating = mysqli_real_escape_string($conn, $_POST['serviceRating']);
       $foodRating = mysqli_real_escape_string($conn, $_POST['foodRating']);
@@ -76,6 +79,7 @@ session_start();
 <div id="loginForm">
 <form method="post" id="addForm">
 
+<!--
   <p>
       <label for="restaurantName">Restaurant:</label>
       <?php
@@ -118,6 +122,11 @@ session_start();
       echo '</select>';
       ?>
   </p>
+-->
+  <?php
+    $restName = $_GET['restName'];
+    echo "<p>Review for: $restName</p>";
+  ?>
   <p>
       <label for="review">Comments:</label>
       <input type="text" class="required" name="review" id="review">

@@ -33,7 +33,8 @@
     die('Could not connect: ' . mysql_error());
   }
   if(!$user){
-    echo "<h1>You are not logged in.</h1>";
+    echo "<h1>You are not logged in.</h1>
+          <a href='home.php' class='add-review-button-rest'>Go home to log in</a>";
   }
   else{
     $userquery = "SELECT * FROM WebUsers WHERE username = '$user'";
@@ -72,7 +73,7 @@
 			<div class='restaurant-image-container'>
             <img src=$row[6]>
 			</div>
-          <div class='restaurant-info-container'>
+          <div class='restaurant-info-container-profile'>
             <a href='#' class='restaurant-title'>$row[0]</a>";
     if(!$row[7]){
       echo"</br><span class='restaurant-rating'>Not Yet Rated</span>";

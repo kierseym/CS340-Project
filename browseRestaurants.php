@@ -13,7 +13,6 @@
 	</head>
 <body>
 
-
 <?php
   include "header.php";
   $msg = "Browse Restaurants";
@@ -22,7 +21,11 @@
   if (!$conn) {
     die('Could not connect: ' . mysql_error());
   }
-
+?>
+<form method="get" action="addRestaurant.php">
+  <button class="browse-button-style" type="submit">Add New Restaurant</button>
+</form>
+<?php
   // query to select all information from supplier table
   	$query = "SELECT * FROM Restaurants ";
     // Get results from query
@@ -43,8 +46,10 @@
             <img src=$row[6]>
 			</div>
           <div class='restaurant-info-container'>
-            <a href='#' class='restaurant-title'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
+            <a href='restaurant.php?restName=$row[0]' class='restaurant-title-browse'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
+            <a href='addReview.php?restName=$row[0]&zip=$row[2]&street=$row[1]' class='add-review-button'>Add Review</a>
           </div>
+
 		  </div>
         </div>
       </div>";
@@ -69,13 +74,9 @@
     	mysqli_close($conn);
 ?>
 
-<form method="get" action="addRestaurant.php">
-  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Restaurant</button>
-</form>
 
-<form method="get" action="addReview.php">
-  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Review</button>
-</form>
+
+
 
 </body>
 </html>
