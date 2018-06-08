@@ -23,33 +23,40 @@ session_start();
   if (!$conn) {
     die('Could not connect: ' . mysql_error());
   }
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Escape user inputs for security
-      $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
-      $street = mysqli_real_escape_string($conn, $_POST['street']);
-      $zip = mysqli_real_escape_string($conn, $_POST['zip']);
-      $hourlyPay = mysqli_real_escape_string($conn, $_POST['hourlyPay']);
-      $startDay = mysqli_real_escape_string($conn, $_POST['startDay']);
-      $startMonth = mysqli_real_escape_string($conn, $_POST['startMonth']);
-      $startYear = mysqli_real_escape_string($conn, $_POST['startYear']);
-      $startDate = $startYear . '-' . $startMonth . '-' . $startDay;
+  if(!$username){
+  echo "<h2>ERROR: You must be logged in to add work experience.</h2>";
+  echo "<p><a href='home.php' class='add-review-button-rest'>Go home to log in</a></p>";
+  }
+  else{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      // See if user is already in the table
-      		$queryIn = "SELECT * FROM WorksAt where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
-      		$resultIn = mysqli_query($conn, $queryIn);
-      		if (mysqli_num_rows($resultIn)> 0) {
-      			$msg ="<h2>Error: You are already listed as working at that restaurant.</h2>";
-      		} else {
-      		// attempt insert query
-      			$query = "INSERT INTO WorksAt (username, restaurantName, street, zip, startDate, houlyPay)
-                      VALUES ('$username', '$restaurantName', '$street', '$zip', '$startDate', '$hourlyPay')";
-      			if(mysqli_query($conn, $query)){
-      				$msg =  "<p>Work experience successfully added.</p>";
-      			} else{
-      				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
-      			}
-      		}
+      // Escape user inputs for security
+        $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
+        $street = mysqli_real_escape_string($conn, $_POST['street']);
+        $zip = mysqli_real_escape_string($conn, $_POST['zip']);
+        $hourlyPay = mysqli_real_escape_string($conn, $_POST['hourlyPay']);
+        $startDay = mysqli_real_escape_string($conn, $_POST['startDay']);
+        $startMonth = mysqli_real_escape_string($conn, $_POST['startMonth']);
+        $startYear = mysqli_real_escape_string($conn, $_POST['startYear']);
+        $startDate = $startYear . '-' . $startMonth . '-' . $startDay;
+
+        // See if user is already in the table
+        		$queryIn = "SELECT * FROM WorksAt where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
+        		$resultIn = mysqli_query($conn, $queryIn);
+        		if (mysqli_num_rows($resultIn)> 0) {
+        			$msg ="<h2>Error: You are already listed as working at that restaurant.</h2>";
+        		} else {
+        		// attempt insert query
+        			$query = "INSERT INTO WorksAt (username, restaurantName, street, zip, startDate, houlyPay)
+                        VALUES ('$username', '$restaurantName', '$street', '$zip', '$startDate', '$hourlyPay')";
+        			if(mysqli_query($conn, $query)){
+        				$msg =  "<p>Work experience successfully added.</p>";
+        			} else{
+        				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
+        			}
+        		}
+        }
       }
 
 
