@@ -41,7 +41,7 @@ session_start();
         		if (mysqli_num_rows($resultIn)> 0) {
               // attempt insert query
                 $query = "UPDATE WebUsers
-                          SET password = '$password', name = '$name'
+                          SET password = '$password', name = '$name',
                             phoneNumber = '$phoneNumber'
                           WHERE username = '$username'";
                 if(mysqli_query($conn, $query)){
