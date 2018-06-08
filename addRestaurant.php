@@ -65,11 +65,10 @@ session_start();
 ?>
 
 <section>
+  <div id='loginForm'>
   <h2> <?php echo $msg; ?> </h2>
 
 <form method="post" id="addForm">
-<fieldset>
-<legend>Restaurant Info:</legend>
   <p>
       <label for="restaurantName">Restaurant:</label>
       <input type="text" class="required" name="restaurantName" id="restaurantName">
@@ -109,12 +108,11 @@ session_start();
       <input type="text" class="required" name="photoURL" id="photoURL">
   </p>
 
-</fieldset>
-
       <p>
         <input type = "submit"  value = "Submit" />
         <input type = "reset"  value = "Clear Form" />
       </p>
 </form>
+</div>
 </body>
 </html>
