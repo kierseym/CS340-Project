@@ -22,36 +22,41 @@ session_start();
   if (!$conn) {
     die('Could not connect: ' . mysql_error());
   }
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if(!$username){
+  echo "<h2>ERROR: You must be logged in to add a restaurant.</h2>";
+  echo "<p><a href='home.php' class='add-review-button-rest'>Go home to log in</a></p>";
+  }
+  else{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Escape user inputs for security
-    	//$username = mysqli_real_escape_string($conn, $_POST['username']);
-      $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
-      $street = mysqli_real_escape_string($conn, $_POST['street']);
-      $zip = mysqli_real_escape_string($conn, $_POST['zip']);
-      $city = mysqli_real_escape_string($conn, $_POST['city']);
-      $state = mysqli_real_escape_string($conn, $_POST['state']);
-      $type = mysqli_real_escape_string($conn, $_POST['type']);
-      $photoURL = mysqli_real_escape_string($conn, $_POST['photoURL']);
-      //$rating = ;
+      // Escape user inputs for security
+      	//$username = mysqli_real_escape_string($conn, $_POST['username']);
+        $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
+        $street = mysqli_real_escape_string($conn, $_POST['street']);
+        $zip = mysqli_real_escape_string($conn, $_POST['zip']);
+        $city = mysqli_real_escape_string($conn, $_POST['city']);
+        $state = mysqli_real_escape_string($conn, $_POST['state']);
+        $type = mysqli_real_escape_string($conn, $_POST['type']);
+        $photoURL = mysqli_real_escape_string($conn, $_POST['photoURL']);
+        //$rating = ;
 
-      // See if user is already in the table
-      		$queryIn = "SELECT * FROM Restaurants where name = '$restaurantName' and street = '$street' and zip = '$zip'";
-      		$resultIn = mysqli_query($conn, $queryIn);
-      		if (mysqli_num_rows($resultIn)> 0) {
-      			$msg ="<h2>Error: That restaurant already exists in the database.</h2>";
-      		} else {
-      		// attempt insert query
-      			$query = "INSERT INTO Restaurants (name, street, zip, city, state, type, photoURL)
-                      VALUES ('$restaurantName', '$street', '$zip', '$city', '$state', '$type', '$photoURL')";
-      			if(mysqli_query($conn, $query)){
-      				$msg =  "<p>Restaurant successfully added.</p>";
-      			} else{
-      				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
-      			}
-      		}
+        // See if user is already in the table
+        		$queryIn = "SELECT * FROM Restaurants where name = '$restaurantName' and street = '$street' and zip = '$zip'";
+        		$resultIn = mysqli_query($conn, $queryIn);
+        		if (mysqli_num_rows($resultIn)> 0) {
+        			$msg ="<h2>Error: That restaurant already exists in the database.</h2>";
+        		} else {
+        		// attempt insert query
+        			$query = "INSERT INTO Restaurants (name, street, zip, city, state, type, photoURL)
+                        VALUES ('$restaurantName', '$street', '$zip', '$city', '$state', '$type', '$photoURL')";
+        			if(mysqli_query($conn, $query)){
+        				$msg =  "<p>Restaurant successfully added.</p>";
+        			} else{
+        				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
+        			}
+        		}
+        }
       }
-
 
 
 // close connection

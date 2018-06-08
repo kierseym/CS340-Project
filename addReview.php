@@ -23,50 +23,55 @@ session_start();
   if (!$conn) {
     die('Could not connect: ' . mysql_error());
   }
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if(!$username){
+  echo "<h2>ERROR: You must be logged in to review a restaurant.</h2>";
+  echo "<p><a href='home.php' class='add-review-button-rest'>Go home to log in</a></p>";
+  }
+  else{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Escape user inputs for security
-    	//$username = mysqli_real_escape_string($conn, $_POST['username']);
-    //  $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
-      //$street = mysqli_real_escape_string($conn, $_POST['street']);
-      //$zip = mysqli_real_escape_string($conn, $_POST['zip']);
-      $restaurantName = $_GET['restName'];
-      $zip = $_GET['zip'];
-      $street = $_GET['street'];
-      $review = mysqli_real_escape_string($conn, $_POST['review']);
-      $serviceRating = mysqli_real_escape_string($conn, $_POST['serviceRating']);
-      $foodRating = mysqli_real_escape_string($conn, $_POST['foodRating']);
-      $costRating = mysqli_real_escape_string($conn, $_POST['costRating']);
-      $overallRating = ($serviceRating + $foodRating + $costRating)/3.00;
+      // Escape user inputs for security
+      	//$username = mysqli_real_escape_string($conn, $_POST['username']);
+      //  $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurantName']);
+        //$street = mysqli_real_escape_string($conn, $_POST['street']);
+        //$zip = mysqli_real_escape_string($conn, $_POST['zip']);
+        $restaurantName = $_GET['restName'];
+        $zip = $_GET['zip'];
+        $street = $_GET['street'];
+        $review = mysqli_real_escape_string($conn, $_POST['review']);
+        $serviceRating = mysqli_real_escape_string($conn, $_POST['serviceRating']);
+        $foodRating = mysqli_real_escape_string($conn, $_POST['foodRating']);
+        $costRating = mysqli_real_escape_string($conn, $_POST['costRating']);
+        $overallRating = ($serviceRating + $foodRating + $costRating)/3.00;
 
-      // See if user is already in the table
-      		$queryIn = "SELECT * FROM Review where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
-      		$resultIn = mysqli_query($conn, $queryIn);
-      		if (mysqli_num_rows($resultIn)> 0) {
-            // attempt UPDATE query
-        			$query = "UPDATE Review
-                        SET overallRating = '$overallRating', review = '$review',
-                          serviceRating = '$serviceRating', foodRating = '$foodRating',
-                          costRating = '$costRating'
-                        WHERE username = '$username' and restaurantName = '$restaurantName' and
-                           street = '$street' and zip = '$zip'";
-      			if(mysqli_query($conn, $query)){
-      			     $msg ="<h2>You have successfully updated your review.</h2>";
-            } else{
-              echo "ERROR: Could not execute $query. " . mysqli_error($conn);
-            }
-      		} else {
-      		// attempt insert query
-      			$query = "INSERT INTO Review (username, restaurantName, street, zip, overallRating, review, serviceRating, foodRating, costRating)
-                      VALUES ('$username', '$restaurantName', '$street', '$zip', '$overallRating', '$review', '$serviceRating', '$foodRating', '$costRating')";
-      			if(mysqli_query($conn, $query)){
-      				$msg =  "<p>Review successfully added.</p>";
-      			} else{
-      				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
-      			}
-      		}
+        // See if user is already in the table
+        		$queryIn = "SELECT * FROM Review where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
+        		$resultIn = mysqli_query($conn, $queryIn);
+        		if (mysqli_num_rows($resultIn)> 0) {
+              // attempt UPDATE query
+          			$query = "UPDATE Review
+                          SET overallRating = '$overallRating', review = '$review',
+                            serviceRating = '$serviceRating', foodRating = '$foodRating',
+                            costRating = '$costRating'
+                          WHERE username = '$username' and restaurantName = '$restaurantName' and
+                             street = '$street' and zip = '$zip'";
+        			if(mysqli_query($conn, $query)){
+        			     $msg ="<h2>You have successfully updated your review.</h2>";
+              } else{
+                echo "ERROR: Could not execute $query. " . mysqli_error($conn);
+              }
+        		} else {
+        		// attempt insert query
+        			$query = "INSERT INTO Review (username, restaurantName, street, zip, overallRating, review, serviceRating, foodRating, costRating)
+                        VALUES ('$username', '$restaurantName', '$street', '$zip', '$overallRating', '$review', '$serviceRating', '$foodRating', '$costRating')";
+        			if(mysqli_query($conn, $query)){
+        				$msg =  "<p>Review successfully added.</p>";
+        			} else{
+        				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
+        			}
+        		}
+        }
       }
-
 
 
 // close connection
