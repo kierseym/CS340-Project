@@ -16,6 +16,7 @@ session_start();
 
 <?php
   include "header.php";
+  $username = $_SESSION['user'];
   $msg = "Add Restaurant";
   include 'connectvars.php';
   $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
