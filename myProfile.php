@@ -55,9 +55,7 @@
   $worksatresult = mysqli_query($conn, $workquery);
   if (mysqli_num_rows($worksatresult)> 0) {
     $workrow = mysqli_fetch_row($worksatresult);
-      echo "<p>Works at: $workrow[1]</p>
-            </div>";
-      echo "<p> doesn't work</p>";
+      echo "<p>Works at: $workrow[1]</p>";
       echo "</div>";
   }
   else {
@@ -87,7 +85,7 @@
             <img src=$row[6]>
 			</div>
           <div class='restaurant-info-container-profile'>
-            <a href='#' class='restaurant-title'>$row[0]</a>";
+            <a href='restaurant.php?restName=$row[0]' class='restaurant-title'>$row[0]</a>";
     if(!$row[7]){
       echo"</br><span class='restaurant-rating'>Not Yet Rated</span>";
     }
