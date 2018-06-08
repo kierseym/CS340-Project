@@ -3,6 +3,7 @@
 	$content = array(
 		"Home" => "home.php",
 		"Browse Restaurants" => "browseRestaurants.php",
+		"Search Restaurants" => "searchRestaurants.php",
 		"Profile" => "myProfile.php",
 		"Logout" => "logout.php",
 	);
