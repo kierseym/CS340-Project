@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<?php $currentpage="Browse Restaurants";
+<?php $currentpage="Search Restaurants";
       include "pages.php";
 ?>
 
 <html>
 	<head>
-		<title>Browse Restaurants</title>
+		<title>Search Restaurants</title>
 		<link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script>
@@ -15,7 +15,7 @@
 
 <?php
   include "header.php";
-  $msg = "Browse Restaurants";
+  $msg = "Search Restaurants";
   include 'connectvars.php';
   $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
   if (!$conn) {
@@ -112,11 +112,14 @@
         	while($row = mysqli_fetch_row($result)) {
         echo"<div class='restaurant'>
             <div class='restaurant-contents'>
+                      <div class='clearfix'>
               <div class='restaurant-image-container'>
                 <img src=$row[6]>
               </div>
               <div class='restaurant-info-container'>
-                <a href='#' class='restaurant-title'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
+                <a href='restaurant.php?restName=$row[0]' class='restaurant-title-browse'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
+                <a href='addReview.php?restName=$row[0]&zip=$row[2]&street=$row[1]' class='add-review-button' id='searchRest'>Add Review</a>
+              </div>
               </div>
             </div>
           </div>";
@@ -163,21 +166,11 @@
     <label for='city'>City: </label>
     <input type='text' name='city' id='city' class='optional'>
   </p>
-</fieldset>
-
 <p>
   <input type = "submit"  value = "Submit" />
-  <input type = "reset"  value = "Clear Form" />
 </p>
+</fieldset>
 
-</form>
-
-<form method="get" action="addRestaurant.php">
-  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Restaurant</button>
-</form>
-
-<form method="get" action="addReview.php">
-  <button style="display: inline-block" class="browse-button-style" type="submit">Add New Review</button>
 </form>
 
 </body>

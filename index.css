@@ -448,6 +448,7 @@ input:-webkit-autofill {
   line-height: 50px;
   text-decoration: none;
   color: #4e97da;
+	height: 200px;
 }
 
 .restaurant-info-container a:hover{
@@ -595,6 +596,7 @@ input[type=number] {
 
 a.add-review-button{
 	width: 50%;
+		height: 50%;
 	-webkit-appearance: button;
 	appearance: button;
 	background-color: #4e97da;

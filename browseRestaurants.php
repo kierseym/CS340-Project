@@ -47,7 +47,7 @@
 			</div>
           <div class='restaurant-info-container'>
             <a href='restaurant.php?restName=$row[0]' class='restaurant-title-browse'>$row[0]</a> <span class='restaurant-rating'>Rating: $row[7]</span> <span class='restaurant-city'>$row[3]</span>
-            <a href='addReview.php?restName=$row[0]&zip=$row[2]&street=$row[1]' class='add-review-button'>Add Review</a>
+            <a href='addReview.php?restName=$row[0]&zip=$row[2]&street=$row[1]' class='add-review-button' id='browseRest'>Add Review</a>
           </div>
 
 		  </div>
