@@ -61,8 +61,7 @@
       echo "</div>";
   }
   else {
-  echo "<p> doesn't work</p>";
-  echo "</div>";
+    echo "</div>";
   }
 
 
