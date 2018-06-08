@@ -49,8 +49,22 @@
            <h2> User Information: </h2>
            <p> Username: $userrow[0]</p>
            <p> Name: $userrow[2]</p>
-           <p> Phone Number: $userrow[3]</p>
-           </div>";
+           <p> Phone Number: $userrow[3]</p>";
+
+  $workquery = "SELECT * FROM WorksAt WHERE username = '$user'";
+  $worksatresult = mysqli_query($conn, $workquery);
+  if (mysqli_num_rows($worksatresult)> 0) {
+    $workrow = mysqli_fetch_row($worksatresult);
+      echo "<p>Works at: $workrow[1]</p>
+            </div>";
+      echo "<p> doesn't work</p>";
+      echo "</div>";
+  }
+  else {
+  echo "<p> doesn't work</p>";
+  echo "</div>";
+  }
+
 
 
       $query = "SELECT * FROM Restaurants WHERE name IN (SELECT restaurantName FROM Favorite WHERE username = '$user')";
