@@ -92,7 +92,8 @@
     else{
       echo"</br><span class='restaurant-rating'>Rating: $row[7]</span>";
     }
-      echo "</div>
+      echo "            <a href='deleteFavorite.php?restName=$row[0]&zip=$row[2]&street=$row[1]' class='add-review-button' id='browseRest'>Delete Favorite</a>
+      </div>
       </div>
       </div>
       </div>";
