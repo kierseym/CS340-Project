@@ -54,9 +54,10 @@
   $workquery = "SELECT * FROM WorksAt WHERE username = '$user'";
   $worksatresult = mysqli_query($conn, $workquery);
   if (mysqli_num_rows($worksatresult)> 0) {
-    $workrow = mysqli_fetch_row($worksatresult);
-      echo "<p>Works at: $workrow[1]</p>
-      <br /><a href='updateProfile.php' class='button-style'>Update Info</a>";
+    while($workrow = mysqli_fetch_row($worksatresult)){
+      echo "<p>Works at: $workrow[1]</p>";
+    }
+      echo "<br /><a href='updateProfile.php' class='button-style'>Update Info</a>";
       echo "</div>";
   }
   else {
