@@ -5,6 +5,7 @@
 		"Browse Restaurants" => "browseRestaurants.php",
 		"Search Restaurants" => "searchRestaurants.php",
 		"Profile" => "myProfile.php",
+		"Help" => "helpPage.php",
 		"Logout" => "logout.php",
 	);
 ?>
