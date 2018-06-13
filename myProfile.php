@@ -101,7 +101,15 @@
       </div>";
     }
 
-    $reviewquery = "SELECT * FROM Review WHERE username = '$user'";
+    $reviewquery = "SELECT Review.username, Review.restaurantName, Review.street,
+                           Review.zip, Review.overallRating, Review.review,
+                           Review.serviceRating, Review.foodRating, Review.costRating,
+                           Restaurants.photoURL
+                      FROM Review, Restaurants
+                      WHERE Review.username = '$user'
+                            and Review.restaurantName = Restaurants.name
+                            and Review.street = Restaurants.street
+                            and Review.zip = Restaurants.zip";
     $reviewresult = mysqli_query($conn, $reviewquery);
     if (!$reviewresult) {
           echo "ERROR: Could not execute $reviewquery. " . mysqli_error($conn);
@@ -110,10 +118,15 @@
     while($reviewrow = mysqli_fetch_row($reviewresult)) {
     echo "<div id='restaurant-review-info'>
           <h3>$reviewrow[1]</h3>
+          <div class='restaurant-image-container'>
+                <img src=$reviewrow[9]>
+          </div>
+          <div class='clearfix'>
             <p>Address: $reviewrow[2]</p>
             <p>Overall rating: $reviewrow[4]</p>
            <p>Review: $reviewrow[5]</lp>
            <p> Service Rating: $reviewrow[6], Food Rating: $reviewrow[7], Cost Rating: $reviewrow[8]</p>
+           </div>
            </div>";
   }
   echo "</div>";

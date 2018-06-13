@@ -44,6 +44,14 @@ session_start();
         $costRating = mysqli_real_escape_string($conn, $_POST['costRating']);
         $overallRating = ($serviceRating + $foodRating + $costRating)/3.00;
 
+        //see if user works at the restaurant
+        $queryWorks = "SELECT * FROM WorksAt where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
+        $resultWorks = mysqli_query($conn, $queryWorks);
+        if (mysqli_num_rows($resultWorks)> 0) {
+          echo "ERROR: You cannot review a restaurant where you work.";
+        }
+        else{
+
         // See if user is already in the table
         		$queryIn = "SELECT * FROM Review where username='$username' and restaurantName = '$restaurantName' and street = '$street' and zip = '$zip'";
         		$resultIn = mysqli_query($conn, $queryIn);
@@ -70,6 +78,7 @@ session_start();
         				echo "ERROR: Could not execute $query. " . mysqli_error($conn);
         			}
         		}
+          }
         }
       }
 
